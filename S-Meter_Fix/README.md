@@ -56,6 +56,10 @@ This document describes the calibration procedure that was followed, together wi
 
 The TinySA output was connected directly to the radio antenna connector through two fixed attenuators (30 dB + 40 dB, total 70dB).
 
+![TinySA settings](images/TinySA.jpg)  
+
+![Attenuators Used](images/Attenuators.jpg)  
+  
 ---
 
 # Calibration Procedure
@@ -78,6 +82,8 @@ Repeat changes on SQ-1 until all three levels are displayed correctly.
 
 > **Important:** Unlike SQ-5 and SQ-9, **SQ-1 should not simply be copied from the CPS "Signal" value**. It must be adjusted manually until the displayed S-meter matches the expected levels.
 
+![S1](images/S1.jpg)  
+  
 ---
 
 ## SQ-5
@@ -90,6 +96,8 @@ Copy the **Signal** value into **SQ-5**.
 
 Verify that the radio displays **S5**.
 
+![S5](images/S5.jpg)  
+  
 ---
 
 ## SQ-9
@@ -100,6 +108,8 @@ Open **Read Status**.
 
 Copy the **Signal** value into **SQ-9**.
 
+![S9](images/S9.jpg)  
+  
 ---
 
 # Final Calibration Values
