@@ -182,6 +182,7 @@ Also you'll find a translated version of the CPS executable file for download.
   https://github.com/vegos/Hiroyasu_IC-980Pro_Max/blob/main/S-Meter_Fix
   *Important: Calibration values are radio-specific and should not be copied blindly. Always calibrate your own unit.*
 
+---
 
 ## :toolbox: Microphone Modification
 
