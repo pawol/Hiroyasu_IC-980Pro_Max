@@ -241,9 +241,15 @@ These results are intended only as a comparison between different receiver S-met
 
 After calibration, the S-meter behaves significantly better than the factory configuration.
 
-Instead of switching almost directly from no indication to full scale, the radio now displays intermediate signal levels consistently across both VHF and UHF.
+Instead of switching almost directly from no indication to full scale, the radio now displays intermediate signal levels much more consistently across both VHF and UHF.
 
-Although the upper part of the display remains compressed due to firmware behavior, the resulting calibration provides a much more useful and realistic indication of received signal strength.
+The calibration was verified using a TinySA Ultra+ on both amateur bands and produces repeatable results.
+
+However, during real-world operation I observed that, in some cases, a very weak FM signal that only just opens the squelch (level 1) and is barely intelligible above the noise may still produce an S-meter indication as high as **S8**.
+
+This suggests that the radio's firmware may use a more complex signal evaluation than a simple RF level, or that the S-meter implementation is not directly correlated with perceived audio quality.
+
+Therefore, this calibration should currently be considered a **work in progress**. Additional testing and comparison with other receivers will be performed in order to better understand the radio's S-meter behaviour under real on-air conditions.
   
 ---
 
