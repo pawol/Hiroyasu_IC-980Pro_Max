@@ -253,6 +253,122 @@ Therefore, this calibration should currently be considered a **work in progress*
   
 ---
 
+# Additional Investigation
+
+After the initial calibration was completed, additional experiments were performed to better understand how the radio's internal **CPS Signal** value relates to both laboratory-generated and real off-air signals.
+
+## 1. Generator Reference Measurements
+
+The Hiroyasu receiver was fed directly from the TinySA Ultra+ signal generator using the following setup:
+
+```
+TinySA Generator
+    │
+70 dB Attenuator
+    │
+Pigtail
+    │
+Passive RF Splitter
+    │
+1 m RG58
+    │
+Hiroyasu IC-980Pro Max
+```
+
+Measured values:
+
+| TinySA Generator | CPS Signal |
+|-----------------:|-----------:|
+| -117 dBm | 114 |
+| -113 dBm | 122 |
+| -110 dBm | 128 |
+| -100 dBm | 149 |
+| -90 dBm | 167 |
+
+These measurements were repeatable and provide a good reference for the receiver's internal signal processing.
+
+---
+
+## 2. Off-Air Correlation
+
+The following setup was then used to compare real received signals.
+
+```
+                Diamond VX50
+                     │
+           15 m Hyperflex-5
+                     │
+              Passive Splitter
+             ┌────────┴────────┐
+             │                 │
+         TinySA Ultra      Hiroyasu
+      (Spectrum Analyzer)    (RX)
+```
+
+The TinySA was configured in **Spectrum Analyzer**, **Zero Span**, with **RBW = 3 kHz** (**Gain 0 dB**, **Reference Level -30 dB**, **LNA Off**).
+
+Typical measured values:
+
+| tinySA Level | CPS Signal |
+|-------------:|-----------:|
+| ~-117 dBm | ~125 |
+| ~-115 dBm | ~126 |
+| ~-113 dBm | ~138–141 |
+| ~-110 dBm | ~142 |
+| ~-102…-98 dBm | ~166 |
+| ~-90 dBm | ~183 |
+| ~-83…-81 dBm | ~198–200 |
+
+These measurements should be considered approximate.
+
+Real received signals naturally fluctuate by approximately **±1–2 dB** due to:
+
+- fading
+- multipath propagation
+- voice modulation
+- receiver AGC
+- TinySA averaging
+
+---
+
+## Observations
+
+Several interesting observations were made during these experiments.
+
+### CPS Signal is not linear
+
+The CPS **Signal** value appears to be an internal 8-bit value (0...255).
+
+However, its relationship with RF level is **not linear**.
+
+Some RF ranges produce large changes in the Signal value, while others show obvious compression or plateau behaviour.
+
+---
+
+### Generator vs Off-Air
+
+The generator measurements and the real off-air measurements do **not** produce identical CPS Signal values.
+
+This is expected, since real FM signals include modulation, fading, receiver AGC and varying signal-to-noise ratios.
+
+Generator measurements should therefore be considered the primary reference, while off-air measurements better represent real operating conditions.
+
+---
+
+### S-Meter behaviour
+
+Although the calibration procedure significantly improves the S-meter behaviour compared to the factory settings, further investigation is still required.
+
+During normal operation it was observed that, in some cases, a very weak FM signal which only just opens the squelch may still produce a relatively high S-meter indication.
+
+Likewise, signals with similar RF levels may have noticeably different audio readability.
+
+This suggests that the displayed S-meter is influenced by more than just the instantaneous RF level, and may also be affected by the receiver's internal AGC and firmware processing.
+
+For this reason, the calibration described in this document should currently be considered a **work in progress**.
+
+---
+
 ## Related Documentation
 
 - 📊 [RF Power Measurements](../Measurements/README.md)
